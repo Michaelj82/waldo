@@ -1,6 +1,7 @@
 import {initializeApp} from 'firebase/app';
 import {getAnalytics} from 'firebase/analytics';
 import {getDatabase} from 'firebase/database';
+import {get, ref, push, set} from "firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAXi-OOGGILQKTT13T42YdqJWv8Bg-YRKc",
@@ -23,4 +24,21 @@ const firebaseConfig = {
 //initialize firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app)
-const database = getDatabase(app)
+
+//tryna get it to w
+function writeData(ID, name, time, map){
+    const database = getDatabase(app)
+
+    const postListRef = ref(database, 'posts')
+
+    const newPostRef = push(postListRef)
+
+    set(newPostRef, {
+            scoreName: name,
+            scoreTime: time,
+            scoreMap: map 
+       
+    });
+}
+
+export default writeData;
