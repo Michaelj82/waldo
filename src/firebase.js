@@ -26,17 +26,16 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app)
 
 //tryna get it to w
-function writeData(ID, name, time, map){
+function writeData(name, time, map){
     const database = getDatabase(app)
 
-    const postListRef = ref(database, 'posts')
+    const postListRef = ref(database, map)
 
     const newPostRef = push(postListRef)
 
     set(newPostRef, {
             scoreName: name,
             scoreTime: time,
-            scoreMap: map 
        
     });
 }

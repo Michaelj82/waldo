@@ -5,9 +5,11 @@ function App() {
   return (
     <div>
       <button onClick={function(){
-        writeData(uniqid(), 'asdf', '3.4 seconds', 'forest')
+        writeData('who', '10 seconds', 'desert')
       }}>Write</button>
       bruh
+      
+
     </div>
   );
 }
