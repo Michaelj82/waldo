@@ -10,11 +10,15 @@ function ImageMap(props){
     function makeSelection(event){
         setisClicked(current => !current)
         setPosition([event.clientX, event.clientY])
+        if (isClicked == true){
+            console.log(`position: ${position}`)
+
+        }
     }
 
 
     useEffect(() =>{
-        console.log(`this is id: ${id}`)
+        // console.log(`this is id: ${id}`)
     })
 
     return(
