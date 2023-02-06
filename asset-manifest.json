@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/waldo/static/js/main.123ee420.js",
+    "static/media/waldobeach.jpg": "/waldo/static/media/waldobeach.d16549e80492c1dfb7ab.jpg",
+    "index.html": "/waldo/index.html",
+    "main.123ee420.js.map": "/waldo/static/js/main.123ee420.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.123ee420.js"
+  ]
+}
