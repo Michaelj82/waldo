@@ -18,7 +18,7 @@ function ImageMap(props){
     })
 
     return(
-        <div id = {id} onClick={makeSelection}>
+        <div id = {id} className ={'waldoMap'} onClick={makeSelection}>
             {isClicked && (
                 <div style={{
                     position:"absolute",
@@ -37,7 +37,7 @@ function ImageMap(props){
 
                 </div>
             )}
-            <img src={props.image}></img>
+            <img className={'waldoImage'} src={props.image}></img>
         </div>
     )
 
