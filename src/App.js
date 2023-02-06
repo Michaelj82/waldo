@@ -1,5 +1,6 @@
 import writeData from "./firebase";
-import uniqid from "uniqid";
+import ImageMap from "./ImageMap"
+import waldobeach from './images/waldobeach.jpg'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       }}>Write</button>
       bruh
       
+      <ImageMap image={waldobeach}></ImageMap>
 
     </div>
   );
