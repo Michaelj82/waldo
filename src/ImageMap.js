@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import uniqid from "uniqid";
+import ImageMagnifier from './imagemagnifyer';
+
 
 function ImageMap(props){
     const [isClicked, setisClicked] = useState(false)
@@ -41,7 +43,7 @@ function ImageMap(props){
 
                 </div>
             )}
-            <img className={'waldoImage'} src={props.image}></img>
+            <ImageMagnifier></ImageMagnifier>
         </div>
     )
 
