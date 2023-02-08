@@ -9,6 +9,8 @@ function ImageMagnifier({
     magnifieWidth = 100,
     zoomLevel = 3
   }) {
+
+    
     const [[x, y], setXY] = useState([0, 0]);
     const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
     const [showMagnifier, setShowMagnifier] = useState(false);

@@ -25,8 +25,21 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app)
 
+export function updateCoords(x, y, target){
+    const database = getDatabase(app)
+
+
+    set(ref (database, 'toFind/' + target),{
+        xCoord: x,
+        yCoord: y
+    });
+
+
+
+}
+
 //tryna get it to w
-function writeData(name, time, map){
+export default function writeData(name, time, map){
     const database = getDatabase(app)
 
     const postListRef = ref(database, map)
@@ -39,5 +52,3 @@ function writeData(name, time, map){
        
     });
 }
-
-export default writeData;
