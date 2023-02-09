@@ -1,7 +1,7 @@
 import {initializeApp} from 'firebase/app';
 import {getAnalytics} from 'firebase/analytics';
 import {getDatabase} from 'firebase/database';
-import {get, ref, push, set} from "firebase/database";
+import {get, ref, push, set, onValue} from "firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAXi-OOGGILQKTT13T42YdqJWv8Bg-YRKc",
@@ -25,18 +25,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app)
 
-export function updateCoords(x, y, target){
+export function updateCoords(target){
     const database = getDatabase(app)
+    var toFindRef = ref(database, 'toFind/');
 
+    onValue(toFindRef, (snapshot) => {
+        if (snapshot.val()[target]){
+            console.log(snapshot.val()[target])
 
-    set(ref (database, 'toFind/' + target),{
-        xCoord: x,
-        yCoord: y
-    });
-
+        }else{
+            console.log('not a target')
+        }
+    })
 
 
 }
+
 
 //tryna get it to w
 export default function writeData(name, time, map){

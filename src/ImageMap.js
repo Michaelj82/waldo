@@ -2,18 +2,22 @@ import React, { useLayoutEffect } from 'react';
 import { useState, useEffect, createRef } from 'react';
 import uniqid from "uniqid";
 import ImageMagnifier from './imagemagnifyer';
+import updateCoords from './firebase'
 const useRefDimensions = (ref) => {
     const [dimensions, setDimensions] = useState({width: 1, height: 2})
-    useEffect(() => {
+    // useEffect(() => {
       if (ref.current){
-        const {current} = ref
-        const boundingRect = current.getBoundingClientRect()
+        const boundingRect = ref.current.getBoundingClientRect()
         const {width, height} = boundingRect
-        setDimensions({width: Math.round(width), height: Math.round(height)})
+        console.log(width, height)
+        setDimensions({width: width, height: height})
+        console.log(dimensions)
+
+        // updateCoords(Math.round(width), Math.round(height), 'bumblebee')
       }
-    }, [])
+    // }, [])
     return dimensions
-  
+
   }
 
 function ImageMap(props){
@@ -25,19 +29,23 @@ function ImageMap(props){
     const [position, setPosition] = useState([0,0])
     const [id, setID] = useState(uniqid())
     
+    useEffect(() =>{
+    }, [dimensions])
+
+
 
     function makeSelection(event){
         setisClicked(current => !current)
         setPosition([event.clientX, event.clientY])
         if (isClicked == true){
-            console.log(`position: ${position}`)
+            // console.log(`position: ${position}`)
 
         }
     }
 
 
     return(
-        <div id = {id} className ={'waldoMap'} onClick={makeSelection} ref={divRef}>
+        <div id = {id} className ={'waldoMap'} onClick={makeSelection}>
             {isClicked && (
                 <div style={{
                     position:"absolute",
@@ -50,17 +58,23 @@ function ImageMap(props){
 
                 }}>
                     <ul>
-                        <li onClick={function(){console.log('waldo!')}}>Waldo</li>
-                        <li onClick={function(){console.log('bumble!')}}>bumble bee guy</li>
-                        <li>width: {dimensions.width}</li>
-                        <li>height: {dimensions.height}</li>
-
+                        <li onClick={function(){
+                            console.log(dimensions.width)
+                            console.log(dimensions.height)
+                        }}>Waldo</li>
+                        <li onClick={function(){
+                            console.log(position)
+                        }}>bumble bee guy</li>
+                       
 
                     </ul>
 
                 </div>
             )}
-            <ImageMagnifier></ImageMagnifier>
+            <div ref={divRef}>
+                <ImageMagnifier></ImageMagnifier>
+
+            </div>
         </div>
     )
 

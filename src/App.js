@@ -22,7 +22,7 @@ function App() {
       bruh
 
       <button onClick={function(){
-        updateCoords(40, 40, 'bumblebee')
+        updateCoords('bumblebee')
       }}>Update Coords test</button>
 
 
