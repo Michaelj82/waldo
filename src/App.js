@@ -12,6 +12,7 @@ const zoomprops = {width:160, height: 160, zoomWidth: 400, img:waldobeach}
 
 
 function App() {
+  
 
 
   return (

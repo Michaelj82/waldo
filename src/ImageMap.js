@@ -1,42 +1,47 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { useState, useEffect, createRef } from 'react';
 import uniqid from "uniqid";
 import ImageMagnifier from './imagemagnifyer';
 import updateCoords from './firebase'
 
-//thsi will work if it doesnt go infinite,
-//find way to stop infinite
-const useRefDimensions = (ref) => {
-    const [dimensions, setDimensions] = useState({width: 1, height: 2})
+const useContainerDimensions = myRef => {
+    const [dimensions, setDimensions] = useState({width: 0, height: 0})
+
     useEffect(() => {
-      if (ref.current){
-        const boundingRect = ref.current.getBoundingClientRect()
-        const {width, height} = boundingRect
-        console.log(width, height)
-        setDimensions({width: width, height: height})
-        console.log(dimensions)
+        const getDimensions = () => ({
+            width: myRef.current.offsetWidth,
+            height: myRef.current.offsetHeight
+        })
 
-        // updateCoords(Math.round(width), Math.round(height), 'bumblebee')
-      }
-    }, [])
+        const handleResize = () => {
+            setDimensions(getDimensions())
+        }
+
+        if (myRef.current){
+            setDimensions(getDimensions())
+        }
+
+        window.addEventListener("resize", handleResize)
+
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+
+    }, [myRef])
     return dimensions
+}
 
-  }
 
 function ImageMap(props){
-    const divRef = createRef(null)
-    const dimensions = useRefDimensions(divRef)
+    const divRef = useRef()
     
 
     const [isClicked, setisClicked] = useState(false)
     const [position, setPosition] = useState([0,0])
     const [id, setID] = useState(uniqid())
+    const {width, height} = useContainerDimensions(divRef)
     
-    useEffect(() =>{
-    }, [dimensions])
-
-
-
+   
     function makeSelection(event){
         setisClicked(current => !current)
         setPosition([event.clientX, event.clientY])
@@ -62,13 +67,18 @@ function ImageMap(props){
                 }}>
                     <ul>
                         <li onClick={function(){
-                            console.log(dimensions.width)
-                            console.log(dimensions.height)
+                         console.log(position)
                         }}>Waldo</li>
                         <li onClick={function(){
                             console.log(position)
                         }}>bumble bee guy</li>
-                       
+                        <li>
+                            {width}w
+                        </li>
+                        <li>
+                            {height}h
+                        </li>
+
 
                     </ul>
 

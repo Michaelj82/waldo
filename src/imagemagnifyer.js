@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import waldobeach from './images/waldobeach.jpg'
+
+
 function ImageMagnifier({
     src= waldobeach,
     width = '100%',
@@ -9,8 +11,6 @@ function ImageMagnifier({
     magnifieWidth = 100,
     zoomLevel = 3
   }) {
-
-    
     const [[x, y], setXY] = useState([0, 0]);
     const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
     const [showMagnifier, setShowMagnifier] = useState(false);
