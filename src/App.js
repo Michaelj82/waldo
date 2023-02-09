@@ -16,7 +16,7 @@ function App() {
 
 
   return (
-    <div>
+    <div id="page">
       <button onClick={function(){
         writeData('who', '10 seconds', 'desert')
       }}>Write</button>

@@ -46,7 +46,11 @@ function ImageMap(props){
         setisClicked(current => !current)
         setPosition([event.clientX, event.clientY])
         if (isClicked == true){
-            // console.log(`position: ${position}`)
+            let xRatio = position[0]/width;
+            let yRatio = position[1]/height;
+            let ratio = [xRatio,yRatio]
+
+            console.log(`ratio: ${ratio}`)
 
         }
     }
@@ -84,7 +88,8 @@ function ImageMap(props){
 
                 </div>
             )}
-            <div ref={divRef}>
+            <div ref={divRef} className={'waldoImage'}
+>
                 <ImageMagnifier></ImageMagnifier>
 
             </div>

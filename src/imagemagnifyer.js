@@ -16,6 +16,7 @@ function ImageMagnifier({
     const [showMagnifier, setShowMagnifier] = useState(false);
     return (
       <div
+      
         style={{
           position: "relative",
           height: height,
