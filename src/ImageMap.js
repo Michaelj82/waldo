@@ -3,9 +3,12 @@ import { useState, useEffect, createRef } from 'react';
 import uniqid from "uniqid";
 import ImageMagnifier from './imagemagnifyer';
 import updateCoords from './firebase'
+
+//thsi will work if it doesnt go infinite,
+//find way to stop infinite
 const useRefDimensions = (ref) => {
     const [dimensions, setDimensions] = useState({width: 1, height: 2})
-    // useEffect(() => {
+    useEffect(() => {
       if (ref.current){
         const boundingRect = ref.current.getBoundingClientRect()
         const {width, height} = boundingRect
@@ -15,13 +18,13 @@ const useRefDimensions = (ref) => {
 
         // updateCoords(Math.round(width), Math.round(height), 'bumblebee')
       }
-    // }, [])
+    }, [])
     return dimensions
 
   }
 
 function ImageMap(props){
-    const divRef = createRef()
+    const divRef = createRef(null)
     const dimensions = useRefDimensions(divRef)
     
 
