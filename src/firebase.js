@@ -25,21 +25,29 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app)
 
-export function updateCoords(target){
+export function updateCoords(target, ratio, map){
     const database = getDatabase(app)
     var toFindRef = ref(database, 'toFind/');
 
     onValue(toFindRef, (snapshot) => {
-        if (snapshot.val()[target]){
-            console.log(snapshot.val()[target])
-
+        if (snapshot.val()[target][map]){
+            if ((snapshot.val()[target][map]['xCoordMax'] >= ratio[0] && ratio[0] >= snapshot.val()[target][map]['xCoordMin'])
+            &&
+            (snapshot.val()[target][map]['yCoordMax'] >= ratio[1] && ratio[1] >= snapshot.val()[target][map]['yCoordMin'])
+            ){
+                console.log('true')
+                // return true;
+            }else{
+                return false;
+            }
+                
         }else{
-            console.log('not a target')
+            return (new Error('Not a target'))
         }
-    })
+    });
 
 
-}
+};
 
 
 //tryna get it to w

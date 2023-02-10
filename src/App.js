@@ -27,7 +27,7 @@ function App() {
       }}>Update Coords test</button>
 
 
-    <ImageMap image={waldobeach}></ImageMap>
+    <ImageMap image={waldobeach} map={'desert'}></ImageMap>
     </div>
   );
 }

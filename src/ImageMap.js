@@ -2,8 +2,8 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { useState, useEffect, createRef } from 'react';
 import uniqid from "uniqid";
 import ImageMagnifier from './imagemagnifyer';
-import updateCoords from './firebase'
-
+import {updateCoords} from './firebase'
+import waldobeach from './images/waldobeach.jpg'
 const useContainerDimensions = myRef => {
     const [dimensions, setDimensions] = useState({width: 0, height: 0})
 
@@ -46,11 +46,8 @@ function ImageMap(props){
         setisClicked(current => !current)
         setPosition([event.clientX, event.clientY])
         if (isClicked == true){
-            let xRatio = position[0]/width;
-            let yRatio = position[1]/height;
-            let ratio = [xRatio,yRatio]
 
-            console.log(`ratio: ${ratio}`)
+
 
         }
     }
@@ -71,10 +68,19 @@ function ImageMap(props){
                 }}>
                     <ul>
                         <li onClick={function(){
-                         console.log(position)
+                            let xRatio = position[0]/width;
+                            let yRatio = position[1]/height;
+                            let ratio = [xRatio,yRatio]
+                            console.log(position)
+                            console.log(ratio)
                         }}>Waldo</li>
                         <li onClick={function(){
-                            console.log(position)
+                            let xRatio = position[0]/width;
+                            let yRatio = position[1]/height;
+                            let ratio = [xRatio,yRatio]
+                            console.log(ratio)
+                            var status = updateCoords('bumblebee', ratio, props.map)
+                            // console.log(status)
                         }}>bumble bee guy</li>
                         <li>
                             {width}w
@@ -90,7 +96,7 @@ function ImageMap(props){
             )}
             <div ref={divRef} className={'waldoImage'}
 >
-                <ImageMagnifier></ImageMagnifier>
+                <ImageMagnifier image={props.image}></ImageMagnifier>
 
             </div>
         </div>

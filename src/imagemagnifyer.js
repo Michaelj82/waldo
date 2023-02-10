@@ -1,10 +1,11 @@
+import { setUserProperties } from 'firebase/analytics';
 import React from 'react';
 import { useState } from 'react';
 import waldobeach from './images/waldobeach.jpg'
 
 
-function ImageMagnifier({
-    src= waldobeach,
+function ImageMagnifier(props,{
+    src= props.image,
     width = '100%',
     height = 'auto',
     magnifierHeight = 100,
