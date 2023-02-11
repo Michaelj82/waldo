@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLayoutEffect, createRef, useState } from "react";
-import writeData, { updateCoords } from "./firebase";
+import  updateCoords, {writeData, } from "./firebase";
 import ImageMagnifier from "./imagemagnifyer";
 import ImageMap from "./ImageMap";
 
@@ -22,12 +22,8 @@ function App() {
       }}>Write</button>
       bruh
 
-      <button onClick={function(){
-        updateCoords('bumblebee')
-      }}>Update Coords test</button>
 
-
-    <ImageMap image={waldobeach} map={'desert'}></ImageMap>
+    <ImageMap image={waldobeach} map={'desert'} findable={['waldo', 'odlaw', 'wizard']}></ImageMap>
     </div>
   );
 }

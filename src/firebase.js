@@ -25,7 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app)
 
-export function updateCoords(target, ratio, map){
+export default function updateCoords(target, ratio, map, callback){
     const database = getDatabase(app)
     var toFindRef = ref(database, 'toFind/');
 
@@ -35,14 +35,13 @@ export function updateCoords(target, ratio, map){
             &&
             (snapshot.val()[target][map]['yCoordMax'] >= ratio[1] && ratio[1] >= snapshot.val()[target][map]['yCoordMin'])
             ){
-                console.log('true')
-                // return true;
+                callback(true, target)
             }else{
-                return false;
+                callback(false, target);
             }
                 
         }else{
-            return (new Error('Not a target'))
+            console.log((new Error('Not a target')))
         }
     });
 
@@ -51,7 +50,7 @@ export function updateCoords(target, ratio, map){
 
 
 //tryna get it to w
-export default function writeData(name, time, map){
+export function writeData(name, time, map){
     const database = getDatabase(app)
 
     const postListRef = ref(database, map)

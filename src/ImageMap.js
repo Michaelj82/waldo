@@ -2,8 +2,10 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { useState, useEffect, createRef } from 'react';
 import uniqid from "uniqid";
 import ImageMagnifier from './imagemagnifyer';
-import {updateCoords} from './firebase'
-import waldobeach from './images/waldobeach.jpg'
+import updateCoords from './firebase.js'
+
+
+
 const useContainerDimensions = myRef => {
     const [dimensions, setDimensions] = useState({width: 0, height: 0})
 
@@ -40,7 +42,7 @@ function ImageMap(props){
     const [position, setPosition] = useState([0,0])
     const [id, setID] = useState(uniqid())
     const {width, height} = useContainerDimensions(divRef)
-    
+    const [found, setFound] = useState([...props.findable])
    
     function makeSelection(event){
         setisClicked(current => !current)
@@ -53,6 +55,23 @@ function ImageMap(props){
     }
 
 
+    function callback(item, target){
+        console.log(found)
+        if (item === true){
+            if (found.includes(target)){
+                let temp = found.filter(item => item !== target)
+                setFound(temp)
+                console.log(`Found ${target}`)
+            }
+
+        }
+    }
+
+    useEffect(() =>{
+        if (found.length === 0){
+            alert('you found them all!')
+        }
+    }, [found])
     return(
         <div id = {id} className ={'waldoMap'} onClick={makeSelection}>
             {isClicked && (
@@ -71,17 +90,25 @@ function ImageMap(props){
                             let xRatio = position[0]/width;
                             let yRatio = position[1]/height;
                             let ratio = [xRatio,yRatio]
-                            console.log(position)
-                            console.log(ratio)
-                        }}>Waldo</li>
+                            // console.log(position)
+                            // console.log(ratio)
+                            updateCoords(props.findable[0], ratio, props.map, callback)
+
+                        }}>{props.findable[0]}</li>
                         <li onClick={function(){
                             let xRatio = position[0]/width;
                             let yRatio = position[1]/height;
                             let ratio = [xRatio,yRatio]
-                            console.log(ratio)
-                            var status = updateCoords('bumblebee', ratio, props.map)
-                            // console.log(status)
-                        }}>bumble bee guy</li>
+                            updateCoords(props.findable[1], ratio, props.map, callback)
+
+                        }}>{props.findable[1]}</li>
+                        <li onClick={function(){
+                            let xRatio = position[0]/width;
+                            let yRatio = position[1]/height;
+                            let ratio = [xRatio,yRatio]
+                            updateCoords(props.findable[2], ratio, props.map, callback)
+
+                        }}>{props.findable[2]}</li>
                         <li>
                             {width}w
                         </li>
