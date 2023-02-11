@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/waldo/static/css/main.d398cdb1.css",
-    "main.js": "/waldo/static/js/main.b794fb33.js",
+    "main.js": "/waldo/static/js/main.4aef4c32.js",
     "static/media/waldobeach.jpg": "/waldo/static/media/waldobeach.d16549e80492c1dfb7ab.jpg",
     "index.html": "/waldo/index.html",
     "main.d398cdb1.css.map": "/waldo/static/css/main.d398cdb1.css.map",
-    "main.b794fb33.js.map": "/waldo/static/js/main.b794fb33.js.map"
+    "main.4aef4c32.js.map": "/waldo/static/js/main.4aef4c32.js.map"
   },
   "entrypoints": [
     "static/css/main.d398cdb1.css",
-    "static/js/main.b794fb33.js"
+    "static/js/main.4aef4c32.js"
   ]
 }
