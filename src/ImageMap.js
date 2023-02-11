@@ -90,8 +90,8 @@ function ImageMap(props){
                             let xRatio = position[0]/width;
                             let yRatio = position[1]/height;
                             let ratio = [xRatio,yRatio]
-                            // console.log(position)
-                            // console.log(ratio)
+                            console.log(position)
+                            console.log(ratio)
                             updateCoords(props.findable[0], ratio, props.map, callback)
 
                         }}>{props.findable[0]}</li>
@@ -99,6 +99,8 @@ function ImageMap(props){
                             let xRatio = position[0]/width;
                             let yRatio = position[1]/height;
                             let ratio = [xRatio,yRatio]
+                            console.log(position)
+                            console.log(ratio)
                             updateCoords(props.findable[1], ratio, props.map, callback)
 
                         }}>{props.findable[1]}</li>
@@ -106,6 +108,8 @@ function ImageMap(props){
                             let xRatio = position[0]/width;
                             let yRatio = position[1]/height;
                             let ratio = [xRatio,yRatio]
+                            console.log(position)
+                            console.log(ratio)
                             updateCoords(props.findable[2], ratio, props.map, callback)
 
                         }}>{props.findable[2]}</li>
