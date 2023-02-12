@@ -8,8 +8,8 @@ import updateCoords from './firebase.js'
 
 const useContainerDimensions = myRef => {
     const [dimensions, setDimensions] = useState({width: 0, height: 0})
-
     useEffect(() => {
+
         const getDimensions = () => ({
             width: myRef.current.offsetWidth,
             height: myRef.current.offsetHeight
@@ -19,6 +19,7 @@ const useContainerDimensions = myRef => {
             setDimensions(getDimensions())
         }
 
+        
         if (myRef.current){
             setDimensions(getDimensions())
         }
@@ -33,10 +34,10 @@ const useContainerDimensions = myRef => {
     return dimensions
 }
 
-
+// see if works when it isnt the main thing in the page, but something loaded in.
 function ImageMap(props){
     const divRef = useRef()
-    
+
 
     const [isClicked, setisClicked] = useState(false)
     const [position, setPosition] = useState([0,0])
