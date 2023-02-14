@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
-import { useLayoutEffect, createRef, useState } from "react";
-import  updateCoords, {writeData, } from "./firebase";
-import ImageMagnifier from "./imagemagnifyer";
-import ImageMap from "./ImageMap";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SelectionPage from "./selectionPage";
 import waldobeach from './images/waldobeach.jpg'
-
-const zoomprops = {width:160, height: 160, zoomWidth: 400, img:waldobeach}
-
+import ImageMap from "./ImageMap";
+import NavBar from "./navBar";
 
 
 
@@ -17,13 +13,17 @@ function App() {
 
   return (
     <div id="page">
-      <button onClick={function(){
-        writeData('who', '10 seconds', 'desert')
-      }}>Write</button>
-      bruh
+      <BrowserRouter>
+        <NavBar></NavBar>
+        <Routes>
+          <Route path="/waldo" element={<SelectionPage maps={[{title: 'Beach Map!', image: waldobeach, map: 'desert', findable: ['waldo', 'odlaw', 'wizard'], link: '/beach'}]}></SelectionPage>}></Route>
+          <Route path='/beach' element={<ImageMap title={'Beach Map!'} image={waldobeach} map={'desert'} findable={['waldo', 'odlaw', 'wizard']} start={0} max={360}></ImageMap>}></Route>
+          <Route path='/highscores' element={<div>temporary</div>}></Route>
 
+        </Routes>
+      
+      </BrowserRouter>
 
-    <ImageMap image={waldobeach} map={'desert'} findable={['waldo', 'odlaw', 'wizard']}></ImageMap>
     </div>
   );
 }

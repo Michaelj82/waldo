@@ -3,8 +3,7 @@ import { useState, useEffect, createRef } from 'react';
 import uniqid from "uniqid";
 import ImageMagnifier from './imagemagnifyer';
 import updateCoords from './firebase.js'
-
-
+import ScorePopUp from './ScorePopUp';
 
 const useContainerDimensions = myRef => {
     const [dimensions, setDimensions] = useState({width: 0, height: 0})
@@ -44,7 +43,9 @@ function ImageMap(props){
     const [id, setID] = useState(uniqid())
     const {width, height} = useContainerDimensions(divRef)
     const [found, setFound] = useState([...props.findable])
-   
+    const [counter, setCounter] = useState(props.start);
+
+
     function makeSelection(event){
         setisClicked(current => !current)
         setPosition([event.clientX, event.clientY])
@@ -68,12 +69,29 @@ function ImageMap(props){
         }
     }
 
+    useEffect(() => {
+        if (found.length !== 0){
+            if (counter < props.max){
+                setTimeout(()=> setCounter(counter+1), 1000);
+            }else{
+            }
+        }else{
+
+        }
+
+        
+    }, [counter]);
+
     useEffect(() =>{
         if (found.length === 0){
-            alert('you found them all!')
+            let num = counter
+            console.log(num)
+            alert(`you found them all! with a time of ${num} seconds`)
         }
     }, [found])
     return(
+
+        <div>
         <div id = {id} className ={'waldoMap'} onClick={makeSelection}>
             {isClicked && (
                 <div style={{
@@ -132,6 +150,13 @@ function ImageMap(props){
 
             </div>
         </div>
+        {(found.length === 0) &&
+            <ScorePopUp></ScorePopUp>
+
+        }
+
+        </div>
+        
     )
 
 

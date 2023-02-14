@@ -25,3 +25,57 @@ html, body{
     width: 100%;
     height: auto;
 }
+
+.waldoSelection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectionSpecifics{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectionDisplay{
+    height: 100px;
+    width: auto;
+}
+
+#navBar{
+    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid;
+    border-color: blue;
+
+
+}
+#navBar:visited{
+    text-decoration: none;
+}
+#navBar > .links{
+    list-style-type: none;
+
+}
+#navBar > ul > li{
+
+    display: inline;
+    margin: 15px;
+}
+
+#popUp{
+    position: absolute;
+    z-index: 1002;
+    height: 300px;
+    width: 300px;
+    background-color: brown;
+    top: 50%;
+    left: 50%;
+
+    margin: -150px 0 0 -150px;
+}
