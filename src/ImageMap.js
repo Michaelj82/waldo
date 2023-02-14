@@ -151,7 +151,7 @@ function ImageMap(props){
             </div>
         </div>
         {(found.length === 0) &&
-            <ScorePopUp></ScorePopUp>
+            <ScorePopUp time={(counter-1)} map={props.map}></ScorePopUp>
 
         }
 

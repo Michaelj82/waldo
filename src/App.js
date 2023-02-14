@@ -18,6 +18,9 @@ function App() {
         <Routes>
           <Route path="/waldo" element={<SelectionPage maps={[{title: 'Beach Map!', image: waldobeach, map: 'desert', findable: ['waldo', 'odlaw', 'wizard'], link: '/beach'}]}></SelectionPage>}></Route>
           <Route path='/beach' element={<ImageMap title={'Beach Map!'} image={waldobeach} map={'desert'} findable={['waldo', 'odlaw', 'wizard']} start={0} max={360}></ImageMap>}></Route>
+
+          
+
           <Route path='/highscores' element={<div>temporary</div>}></Route>
 
         </Routes>
