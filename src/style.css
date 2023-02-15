@@ -3,6 +3,9 @@ html, body{
     width: 100vw;
     margin: 0px;
 
+    color: #e7f6f2;
+    background-color: #2c3333;
+
     /* display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -20,15 +23,17 @@ html, body{
 }
 .waldoMap{
 
+    max-width: 100% !important;
+    height: auto;
     width: auto;
-    height: 350px;
 
 
 }
 .waldoImage{
     border: solid;
-    width: 100%;
+    max-width: 100% !important;
     height: auto;
+    width: auto;
 }
 
 .waldoSelection{
@@ -43,10 +48,12 @@ html, body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .selectionDisplay{
     height: 100px;
+
     width: auto;
 }
 
@@ -98,6 +105,12 @@ html, body{
     margin: 10px;
     border: solid;
     border-color: green;
+}
+
+.findableProfileSelect{
+    height: 35px;
+    width: auto;
+    margin: 5px;
 }
 
 #highscore{

@@ -103,10 +103,15 @@ function ImageMap(props){
                         transform: "translateX(-50%)",
                         transform: "translateY(-50%)",
                         zIndex: 1000,
+                        backgroundColor: "#e7f6f2",
+                        color: "black",
+                        padding: "5px",
 
 
                     }}>
-                        <ul>
+                        <ul style={{
+                            listStyle: "none",
+                        }}>
                             <li onClick={function(){
                                 let xRatio = position[0]/width;
                                 let yRatio = position[1]/height;
@@ -115,7 +120,7 @@ function ImageMap(props){
                                 console.log(ratio)
                                 updateCoords(props.findable[0], ratio, props.map, callback)
 
-                            }}>{props.findable[0]}</li>
+                            }}><img className='findableProfileSelect' src={props.profilePics[props.findable[0]]}></img></li>
                             <li onClick={function(){
                                 let xRatio = position[0]/width;
                                 let yRatio = position[1]/height;
@@ -124,7 +129,7 @@ function ImageMap(props){
                                 console.log(ratio)
                                 updateCoords(props.findable[1], ratio, props.map, callback)
 
-                            }}>{props.findable[1]}</li>
+                            }}><img className='findableProfileSelect' src={props.profilePics[props.findable[1]]}></img></li>
                             <li onClick={function(){
                                 let xRatio = position[0]/width;
                                 let yRatio = position[1]/height;
@@ -133,7 +138,7 @@ function ImageMap(props){
                                 console.log(ratio)
                                 updateCoords(props.findable[2], ratio, props.map, callback)
 
-                            }}>{props.findable[2]}</li>
+                            }}><img className='findableProfileSelect' src={props.profilePics[props.findable[2]]}></img></li>
                             <li>
                                 {width}w
                             </li>
