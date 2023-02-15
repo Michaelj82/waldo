@@ -1,8 +1,8 @@
 import {initializeApp} from 'firebase/app';
 import {getAnalytics} from 'firebase/analytics';
-import {getDatabase} from 'firebase/database';
-import {get, ref, push, set, onValue} from "firebase/database";
-
+import {getDatabase, limitToLast} from 'firebase/database';
+import {get, query, orderByChild, ref, push, set, onValue} from "firebase/database";
+import {limit} from 'firebase/firestore'
 const firebaseConfig = {
     apiKey: "AIzaSyAXi-OOGGILQKTT13T42YdqJWv8Bg-YRKc",
 
@@ -48,6 +48,27 @@ export default function updateCoords(target, ratio, map, callback){
 
 };
 
+
+export function getHighscore(map, callback){
+    const database = getDatabase(app)
+    var scoreref = ref(database, `${map}/`);
+
+    onValue(scoreref, (snapshot) => {
+        const dict = snapshot.val()
+        
+        let sorted = Object.values(dict)
+
+        sorted.sort(function(first, second){
+            return second.scoreTime-first.scoreTime
+        })
+
+        let top5 = sorted.reverse().slice(0, 5)
+
+
+        callback(top5, map)
+
+    })
+}
 
 //tryna get it to w
 export function writeData(name, time, map){

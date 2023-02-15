@@ -49,11 +49,7 @@ function ImageMap(props){
     function makeSelection(event){
         setisClicked(current => !current)
         setPosition([event.clientX, event.clientY])
-        if (isClicked == true){
 
-
-
-        }
     }
 
 
@@ -92,68 +88,73 @@ function ImageMap(props){
     return(
 
         <div>
-        <div id = {id} className ={'waldoMap'} onClick={makeSelection}>
-            {isClicked && (
-                <div style={{
-                    position:"absolute",
-                    left: position[0] + 'px',
-                    top: position[1] + 'px',
-                    transform: "translateX(-50%)",
-                    transform: "translateY(-50%)",
-                    zIndex: 1000,
+            <div id='findableProfilePics'>
+                {found.map(item => (
+                        <img className='findableProfile' src={props.profilePics[item]} key={uniqid()}></img>
+                ))}
+            </div>
+
+            <div id = {id} className ={'waldoMap'} onClick={makeSelection}>
+                {isClicked && (
+                    <div style={{
+                        position:"absolute",
+                        left: position[0] + 'px',
+                        top: position[1] + 'px',
+                        transform: "translateX(-50%)",
+                        transform: "translateY(-50%)",
+                        zIndex: 1000,
 
 
-                }}>
-                    <ul>
-                        <li onClick={function(){
-                            let xRatio = position[0]/width;
-                            let yRatio = position[1]/height;
-                            let ratio = [xRatio,yRatio]
-                            console.log(position)
-                            console.log(ratio)
-                            updateCoords(props.findable[0], ratio, props.map, callback)
+                    }}>
+                        <ul>
+                            <li onClick={function(){
+                                let xRatio = position[0]/width;
+                                let yRatio = position[1]/height;
+                                let ratio = [xRatio,yRatio]
+                                console.log(position)
+                                console.log(ratio)
+                                updateCoords(props.findable[0], ratio, props.map, callback)
 
-                        }}>{props.findable[0]}</li>
-                        <li onClick={function(){
-                            let xRatio = position[0]/width;
-                            let yRatio = position[1]/height;
-                            let ratio = [xRatio,yRatio]
-                            console.log(position)
-                            console.log(ratio)
-                            updateCoords(props.findable[1], ratio, props.map, callback)
+                            }}>{props.findable[0]}</li>
+                            <li onClick={function(){
+                                let xRatio = position[0]/width;
+                                let yRatio = position[1]/height;
+                                let ratio = [xRatio,yRatio]
+                                console.log(position)
+                                console.log(ratio)
+                                updateCoords(props.findable[1], ratio, props.map, callback)
 
-                        }}>{props.findable[1]}</li>
-                        <li onClick={function(){
-                            let xRatio = position[0]/width;
-                            let yRatio = position[1]/height;
-                            let ratio = [xRatio,yRatio]
-                            console.log(position)
-                            console.log(ratio)
-                            updateCoords(props.findable[2], ratio, props.map, callback)
+                            }}>{props.findable[1]}</li>
+                            <li onClick={function(){
+                                let xRatio = position[0]/width;
+                                let yRatio = position[1]/height;
+                                let ratio = [xRatio,yRatio]
+                                console.log(position)
+                                console.log(ratio)
+                                updateCoords(props.findable[2], ratio, props.map, callback)
 
-                        }}>{props.findable[2]}</li>
-                        <li>
-                            {width}w
-                        </li>
-                        <li>
-                            {height}h
-                        </li>
+                            }}>{props.findable[2]}</li>
+                            <li>
+                                {width}w
+                            </li>
+                            <li>
+                                {height}h
+                            </li>
 
 
-                    </ul>
+                        </ul>
+
+                    </div>
+                )}
+                <div ref={divRef} className={'waldoImage'}>
+                    <ImageMagnifier image={props.image}></ImageMagnifier>
 
                 </div>
-            )}
-            <div ref={divRef} className={'waldoImage'}
->
-                <ImageMagnifier image={props.image}></ImageMagnifier>
-
             </div>
-        </div>
-        {(found.length === 0) &&
-            <ScorePopUp time={(counter-1)} map={props.map}></ScorePopUp>
+            {(found.length === 0) &&
+                <ScorePopUp time={(counter-1)} map={props.map}></ScorePopUp>
 
-        }
+            }
 
         </div>
         
