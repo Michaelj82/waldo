@@ -48,6 +48,8 @@ function ImageMap(props){
 
     function makeSelection(event){
         setisClicked(current => !current)
+        //need ot change this so instead of taking client x y click
+        //it takes the div's x y of click
         setPosition([event.clientX, event.clientY])
 
     }
