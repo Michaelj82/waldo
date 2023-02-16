@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/waldo/static/css/main.5fbbf78f.css",
-    "main.js": "/waldo/static/js/main.d75ac21b.js",
+    "main.css": "/waldo/static/css/main.9b3180de.css",
+    "main.js": "/waldo/static/js/main.38d1c6ac.js",
     "static/media/waldobeach.jpg": "/waldo/static/media/waldobeach.d16549e80492c1dfb7ab.jpg",
+    "static/media/waldoFight.png": "/waldo/static/media/waldoFight.7bcbdb59f8c2acd9aa9f.png",
     "static/media/waldoProfile.png": "/waldo/static/media/waldoProfile.4471c84d174a0a59f7d4.png",
     "static/media/odlawProfile.png": "/waldo/static/media/odlawProfile.3dc8da178b0928d7a83a.png",
     "static/media/wizardProfile.png": "/waldo/static/media/wizardProfile.707640a74b9bc20df7d2.png",
     "index.html": "/waldo/index.html",
-    "main.5fbbf78f.css.map": "/waldo/static/css/main.5fbbf78f.css.map",
-    "main.d75ac21b.js.map": "/waldo/static/js/main.d75ac21b.js.map"
+    "main.9b3180de.css.map": "/waldo/static/css/main.9b3180de.css.map",
+    "main.38d1c6ac.js.map": "/waldo/static/js/main.38d1c6ac.js.map"
   },
   "entrypoints": [
-    "static/css/main.5fbbf78f.css",
-    "static/js/main.d75ac21b.js"
+    "static/css/main.9b3180de.css",
+    "static/js/main.38d1c6ac.js"
   ]
 }
