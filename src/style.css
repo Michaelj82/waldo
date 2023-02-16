@@ -173,13 +173,23 @@ html, body{
 #popUp{
     position: absolute;
     z-index: 1002;
-    height: 300px;
-    width: 300px;
-    background-color: brown;
+    height: 200px;
+    width: 200px;
+    background-color: #395b64;
     top: 50%;
     left: 50%;
+    padding: 15px;
+    margin: -100px 0 0 -100px;
 
-    margin: -150px 0 0 -150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.popupElement{
+    margin: 5px;
 }
 
 #findableProfilePics{

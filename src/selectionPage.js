@@ -9,7 +9,7 @@ export default function SelectionPage(props){
     return(
         <div id='mainPage'>
 
-            <div class='fancyIntro'>
+            <div className='fancyIntro'>
                     <h1 className='lean1'>Where's</h1>
                     <h1 className='lean2'>Waldo?</h1>
                 <div className='frontText'>

@@ -54,7 +54,6 @@ function ImageMap(props){
 
 
     function callback(item, target){
-        console.log(found)
         if (item === true){
             if (found.includes(target)){
                 let temp = found.filter(item => item !== target)
@@ -78,13 +77,13 @@ function ImageMap(props){
         
     }, [counter]);
 
-    useEffect(() =>{
-        if (found.length === 0){
-            let num = counter
-            console.log(num)
-            alert(`you found them all! with a time of ${num} seconds`)
-        }
-    }, [found])
+    // useEffect(() =>{
+    //     if (found.length === 0){
+    //         let num = counter
+    //         console.log(num)
+    //         alert(`you found them all! with a time of ${num} seconds`)
+    //     }
+    // }, [found])
     return(
 
         <div>

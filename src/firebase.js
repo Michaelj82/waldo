@@ -37,11 +37,12 @@ export default function updateCoords(target, ratio, map, callback){
             ){
                 callback(true, target)
             }else{
+                
                 callback(false, target);
             }
                 
         }else{
-            console.log((new Error('Not a target')))
+            // console.log((new Error('Not a target')))
         }
     });
 

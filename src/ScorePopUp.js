@@ -20,9 +20,11 @@ function ScorePopUp(props){
     }else{
         return(
             <div id="popUp">
+                <h3>You did it!</h3>
+                <div className="popupElement">Submit your score to the leaderboard below!</div>
                 <form onSubmit={handleSubmit}>
                     <input id="name" type='text' placeholder="Your Name" required onChange={handleChange}></input>
-                    <div>{props.time}</div>
+                    <div className="popupElement">Your time was: {props.time} seconds!</div>
                     <button type="submit">Submit</button>
                 </form>
             </div>
