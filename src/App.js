@@ -25,12 +25,12 @@ function App() {
         <Routes>
           <Route path="/waldo" element={<SelectionPage maps={[
             {title: 'Beach Map!', image: waldobeach, map: 'desert', findable: ['waldo', 'odlaw', 'wizard'], link: '/beach'},
-            {title: 'Track Map!', image: gladiator, map: 'gladiator', findable: ['waldo', 'odlaw', 'wizard'], link: '/gladiator'},
+            {title: 'Track Map!', image: gladiator, map: 'gladiator', findable: ['waldo', 'odlaw', 'wizard'], link: '/track'},
             {title: 'Skiing Map!', image: snow, map: 'snow', findable: ['waldo', 'odlaw', 'wizard'], link: '/snow'}
         ]}></SelectionPage>}></Route>
         
           <Route path='/beach' element={<ImageMap title={'Beach Map!'} image={waldobeach} map={'desert'} findable={['waldo', 'odlaw', 'wizard']} start={0} max={360} profilePics={{'waldo':waldoProfile, 'wizard': wizardProfile, 'odlaw': odlawProfile}}></ImageMap>}></Route>
-          <Route path='/gladiator' element={<ImageMap title={'Gladiator Map!'} image={gladiator} map={'gladiator'} findable={['waldo', 'odlaw', 'wizard']} start={0} max={360} profilePics={{'waldo':waldoProfile, 'wizard': wizardProfile, 'odlaw': odlawProfile}}></ImageMap>}></Route>
+          <Route path='/track' element={<ImageMap title={'Gladiator Map!'} image={gladiator} map={'gladiator'} findable={['waldo', 'odlaw', 'wizard']} start={0} max={360} profilePics={{'waldo':waldoProfile, 'wizard': wizardProfile, 'odlaw': odlawProfile}}></ImageMap>}></Route>
           <Route path='/snow' element={<ImageMap title={'Snow Map!'} image={snow} map={'snow'} findable={['waldo', 'odlaw', 'wizard']} start={0} max={360} profilePics={{'waldo':waldoProfile, 'wizard': wizardProfile, 'odlaw': odlawProfile}}></ImageMap>}></Route>
 
           

@@ -37,7 +37,7 @@ export default function Highscore(props){
             </div>
 
             <div id="gladiatorScores" className="mapScores">
-                <h3 className="scoreHeader">Fastest Gladiator Map Scores</h3>
+                <h3 className="scoreHeader">Fastest Track Map Scores</h3>
 
                 {gladiator.map(item => (
                         <div className="scoreDisplay">
@@ -47,7 +47,7 @@ export default function Highscore(props){
             </div>
 
             <div id="snowScores" className="mapScores">
-                <h3 className="scoreHeader">Fastest Snow Map Scores</h3>
+                <h3 className="scoreHeader">Fastest Ski Map Scores</h3>
 
                 {snow.map(item => (
                     <div className="scoreDisplay">

@@ -50,7 +50,11 @@ function ImageMap(props){
         setisClicked(current => !current)
         //need ot change this so instead of taking client x y click
         //it takes the div's x y of click
-        setPosition([event.clientX, event.clientY])
+
+        let rect = event.target.getBoundingClientRect();
+        let x = event.clientX - rect.left; 
+        let y = event.clientY - rect.top;
+        setPosition([x, y])
 
     }
 
