@@ -27,7 +27,7 @@ export default function Highscore(props){
     return(
         <div id="highscore">
             <div id="desertScores" className="mapScores">
-                <div className="scoreHeader">Fastest Beach Map Scores</div>
+                <h3 className="scoreHeader">Fastest Beach Map Scores</h3>
                 {desert.map(item => (
                     <div className="scoreDisplay">
                         <div>{item.scoreName} - {item.scoreTime} seconds</div>
@@ -37,7 +37,7 @@ export default function Highscore(props){
             </div>
 
             <div id="gladiatorScores" className="mapScores">
-                <div className="scoreHeader">Fastest Gladiator Map Scores</div>
+                <h3 className="scoreHeader">Fastest Gladiator Map Scores</h3>
 
                 {gladiator.map(item => (
                         <div className="scoreDisplay">
@@ -47,7 +47,7 @@ export default function Highscore(props){
             </div>
 
             <div id="snowScores" className="mapScores">
-                <div className="scoreHeader">Fastest Snow Map Scores</div>
+                <h3 className="scoreHeader">Fastest Snow Map Scores</h3>
 
                 {snow.map(item => (
                     <div className="scoreDisplay">

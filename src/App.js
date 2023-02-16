@@ -18,7 +18,6 @@ function App() {
 
 
   return (
-    <div id="page">
       <BrowserRouter>
         <NavBar></NavBar>
         <Routes>
@@ -33,7 +32,6 @@ function App() {
       
       </BrowserRouter>
 
-    </div>
   );
 }
 
