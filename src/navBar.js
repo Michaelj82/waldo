@@ -7,8 +7,8 @@ export default function NavBar(props){
         <div id='navBar'>
             <ul className='links'>
                 <li>Where's Waldo?</li>
-                <li><Link to='/waldo'>Maps</Link></li>
-                <li> <Link to='/highscores'>High Scores</Link></li>
+                <li><Link className='reactLinkHeader' to='/waldo'>Maps</Link></li>
+                <li> <Link className='reactLinkHeader' to='/highscores'>High Scores</Link></li>
             </ul>
         </div>
     )

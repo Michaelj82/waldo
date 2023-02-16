@@ -96,21 +96,16 @@ function ImageMap(props){
 
             <div id = {id} className ={'waldoMap'} onClick={makeSelection}>
                 {isClicked && (
-                    <div style={{
-                        position:"absolute",
+                    <div id='selectionPopUp' style={{
                         left: position[0] + 'px',
                         top: position[1] + 'px',
-                        transform: "translateX(-50%)",
-                        transform: "translateY(-50%)",
-                        zIndex: 1000,
-                        backgroundColor: "#e7f6f2",
-                        color: "black",
-                        padding: "5px",
+
 
 
                     }}>
                         <ul style={{
                             listStyle: "none",
+                            marginLeft: "-1em",
                         }}>
                             <li onClick={function(){
                                 let xRatio = position[0]/width;
@@ -153,7 +148,6 @@ function ImageMap(props){
                 )}
                 <div ref={divRef} className={'waldoImage'}>
                     <ImageMagnifier image={props.image}></ImageMagnifier>
-
                 </div>
             </div>
             {(found.length === 0) &&

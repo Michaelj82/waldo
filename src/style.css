@@ -12,11 +12,29 @@ html, body{
     align-items: center; */
 }
 
+.reactLink{
+    text-decoration: none;
+
+    color: black;
+}
+.reactLink:hover{
+    color: #e7f6f2;
+
+}
+.reactLinkHeader{
+    text-decoration: none;
+    color: #e7f6f2;
+
+}
+.reactLinkHeader:hover{
+    text-decoration: underline;
+}
+
+
 #page{
     margin: 0;
     width: 100%;
     height: 100%;
-    border: solid;
     box-sizing: border-box;
     padding: 10px;
     
@@ -30,10 +48,45 @@ html, body{
 
 }
 .waldoImage{
-    border: solid;
     max-width: 100% !important;
     height: auto;
     width: auto;
+}
+
+#mainPage{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.fancyIntro{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: span 1 / span 1;
+
+}
+
+.introImage{
+    width: 80%;
+    height: auto;
+}
+
+.frontText{
+    margin: 15px;
+    margin-top: 60px;
+}
+
+.lean1{
+    transform: skew(60deg, -30deg) scaleY(0.66667);
+}
+.lean2{    
+
+    transform: skew(0deg, -30deg) scaleY(1.33333);
+
+
 }
 
 .waldoSelection{
@@ -41,6 +94,32 @@ html, body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: #395b64;
+    border-radius: 15px;
+
+    grid-area: span 1 / span 1;
+
+    margin: 10px;
+
+    -webkit-box-shadow: inset 26px 16px 24px -11px #A5C9CA;
+    -moz-box-shadow: inset 26px 16px 24px -11px #A5C9CA;
+    box-shadow: inset 26px 16px 24px -11px #A5C9CA;
+}
+
+#selectionPopUp{
+    position:absolute;
+    width: max-content;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    z-index:1000 ;
+    background-color: #e7f6f2;
+    color: black;
+    padding: 5px;
+
+    border: solid;
+    border-color: #2c3333;
+    border-radius: 15px;
 }
 
 .selectionSpecifics{
@@ -48,7 +127,13 @@ html, body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    color: black;
 
+    background-color: #A5C9CA;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
 }
 
 .selectionDisplay{
@@ -62,9 +147,12 @@ html, body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid;
-    border-color: blue;
 
+    background-color: #395b64;
+
+    -webkit-box-shadow: 0px 2px 2px 0px #A5C9CA;
+    -moz-box-shadow: 0px 2px 2px 0px #A5C9CA;
+    box-shadow: 0px 2px 2px 0px #A5C9CA;
 
 }
 #navBar:visited{
@@ -111,6 +199,11 @@ html, body{
     height: 35px;
     width: auto;
     margin: 5px;
+}
+
+.findableProfileSelect:hover{
+    border: solid;
+    border-color: green;
 }
 
 #highscore{
